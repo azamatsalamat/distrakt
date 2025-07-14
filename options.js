@@ -13,7 +13,26 @@ function buildRules(domains) {
   }));
 }
 
+function startAccessDelay() {
+  const overlay = document.getElementById("overlay");
+  const countdownEl = document.getElementById("countdown");
+
+  let seconds = 10;
+  countdownEl.textContent = seconds;
+
+  const interval = setInterval(() => {
+    seconds--;
+    countdownEl.textContent = seconds;
+    if (seconds <= 0) {
+      clearInterval(interval);
+      overlay.style.display = "none";
+    }
+  }, 1000);
+}
+
 if (typeof document !== "undefined") {
+  window.addEventListener("DOMContentLoaded", startAccessDelay);
+
   document.getElementById("save").addEventListener("click", async () => {
     const text = document.getElementById("blocklist").value;
     const domains = text
