@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Distrakt",
+  "version": "1.0",
+  "description": "Blocks distracting websites with a motivational message.",
+  "permissions": [
+    "declarativeNetRequest",
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": ["<all_urls>", "chrome-extension://__EXTENSION_ID__/*"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "options.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["block.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": []
+  }
+}

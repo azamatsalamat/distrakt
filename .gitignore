@@ -1,0 +1,21 @@
+# Node modules (if you ever add npm packages)
+node_modules/
+
+# Logs and system files
+.DS_Store
+Thumbs.db
+*.log
+
+# Build artifacts (if any)
+dist/
+build/
+
+# VSCode settings
+.vscode/
+
+# OS files
+*.swp
+*.swo
+
+# Chrome extension output files
+*.zip
