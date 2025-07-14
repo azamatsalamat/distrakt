@@ -35,11 +35,15 @@ if (typeof document !== "undefined") {
 
   document.getElementById("save").addEventListener("click", async () => {
     const text = document.getElementById("blocklist").value;
+    const message = document.getElementById("customMessage").value;
     const domains = text
       .split("\n")
       .map((d) => d.trim())
       .filter((d) => d);
-    await chrome.storage.local.set({ blocklist: domains });
+    await chrome.storage.local.set({
+      blocklist: domains,
+      blockMessage: message,
+    });
 
     const rules = buildRules(domains);
     const existing = await chrome.declarativeNetRequest.getDynamicRules();
@@ -56,6 +60,12 @@ if (typeof document !== "undefined") {
   chrome.storage.local.get("blocklist", (data) => {
     if (data.blocklist) {
       document.getElementById("blocklist").value = data.blocklist.join("\n");
+    }
+  });
+
+  chrome.storage.local.get("blockMessage", (data) => {
+    if (data.blockMessage) {
+      document.getElementById("customMessage").value = data.blockMessage;
     }
   });
 }
