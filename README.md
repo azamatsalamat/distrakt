@@ -1,4 +1,5 @@
 🔒 Distrakt
+
 Distrakt is a simple and lightweight Chrome extension that helps you stay focused by blocking distracting websites and replacing them with your own motivational messages.
 
 Features
